@@ -1,0 +1,6 @@
+{
+	"test":"prod",
+	"mongo_uri": "mongodb://prod:27017/",
+	"email_user": "prod",
+	"email_pass": "123"
+}
