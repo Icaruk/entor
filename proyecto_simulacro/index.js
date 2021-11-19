@@ -2,14 +2,12 @@
 //! Esto es index del proyecto
 
 
-const entor = require("entor/lib/entor");
-const {join} = require("path");
-
+const entor = require("../lib/entor");
 
 entor({
 	envType: "local",
-	sharedEnvPath: "C:/Users/admin/Desktop",
-	// >>> Podríamos hacer un generador de example.entor.json
+	sharedEnvPath: "D:/Programación/entor/",
+	syncExamples: true,
 });
 
 

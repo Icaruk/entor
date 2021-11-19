@@ -1,7 +1,7 @@
 
 const entor = require("entor/lib/entor");
 
-const sharedEnvPath = "C:/Users/admin/Desktop";
+const sharedEnvPath = process.cwd();
 
 describe("Default config", () => {
 
@@ -99,7 +99,7 @@ describe("Otros", () => {
 
 describe("Shared", () => {
 	
-	test("Juankeo getEnvType:local", async () => {
+	test("Path", async () => {
 		
 		entor({
 			getEnvType: () => "local",
@@ -108,13 +108,12 @@ describe("Shared", () => {
 		});
 		
 		
-		expect(process.env.shared).toBe("shared");
 		expect(process.env.test).toBe("local");
 		expect(process.env.email_user).toBe("local");
 		
 	});
 	
-	test("getEnvType:local2 path:env", async () => {
+	test("Path + shared", async () => {
 		
 		entor({
 			getEnvType: () => "local2",
@@ -123,13 +122,12 @@ describe("Shared", () => {
 		});
 		
 		
-		expect(process.env.shared).toBe("shared");
 		expect(process.env.test).toBe("local2");
 		expect(process.env.email_user).toBe("local2");
 		
 	});
 	
-	test("getEnvType:local2 override", async () => {
+	test("Path + shared + override", async () => {
 		
 		entor({
 			getEnvType: () => "local2",
