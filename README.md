@@ -1,13 +1,14 @@
 
 <div style="text-align:center">
-	<img src="https://i.gyazo.com/0bdbfe268d70a6fc916ef4faa2e6b68d.png">
 	<h1> entor </h1>
+	<img src="https://i.gyazo.com/0bdbfe268d70a6fc916ef4faa2e6b68d.png">
 </div>
 
 
 [![entor package size](https://packagephobia.com/badge?p=entor)](https://packagephobia.com/result?p=entor)
 <!-- [![entor package size minzipped](https://badgen.net/bundlephobia/minzip/entor)](https://badgen.net/bundlephobia/minzip/entor) [![entor dependency count](https://badgen.net/bundlephobia/dependency-count/entor)](https://badgen.net/bundlephobia/dependency-count/entor) -->
 
+<br>
 
 **entor** loads environment variables from a JSON file into process.env.
 
