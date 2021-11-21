@@ -16,6 +16,7 @@
 - ⚪️ Zero dependencies
 - 💪 Flexibility
 - 🎎 Shared environment between all your projects
+- 🔨 Generates examples automatically
 
 
 
@@ -31,7 +32,6 @@
 
 - [Table of contents](#table-of-contents)
 - [Example without any config](#example-without-any-config)
-	- [Note ❗](#note-)
 - [Config](#config)
 - [Override precedence:](#override-precedence)
 - [Examples](#examples)
@@ -52,7 +52,7 @@
 
 Run
 ```
-node ./index.js --entor=prod
+node ./index.js --env=prod
 ```
 
 prod.entor.json
@@ -83,7 +83,7 @@ process.env = {
 
 
 
-## Note ❗
+**❗ Note**
 Each value in `process.env` is converted to `string` by Node.
 
 
@@ -101,18 +101,34 @@ const env = require("entor")({config});
 
 <br>
 
-- **getEnvType** `function`: 
-  - Function that receives as argument the object with process arguments (`--key=value` → `{key: value}`) that must return a string containing the `envType`.
-  - Default: `args => args.entor`.
-- **envType** `string`: Defines the environment type. This will take precedence over `getEnvType`.
-- **path** `string`: Defines the path where will look for the file `<envType>.entor.json`. Default `./`.
+- **getEnv** `function`: 
+  - Function that receives as argument the object with process arguments (`--key=value` → `{key: value}`) that must return a string containing the `env`.
+  - Default: `args => args.env`.
+<br>
+
+- **env** `string`: Defines the environment type. This will take precedence over `getEnv`.
+<br>
+
+- **path** `string`: Defines the path where will look for the file `<env>.entor.json`. Default `./`.
+<br>
+
 - **sharedEnvFilePath** `string`: Defines the file path where a `.json` will be loaded.
-- **override** `object`: object that will be merged with the content of `<envType>.entor.json`.
+<br>
+
+- **override** `object`: object that will be merged with the content of `<env>.entor.json`.
+<br>
+
 - **warningLevel** `"none" | "message" | "throw"`:
 	- `"none"` will **ignore all** non-critical errors.
-	- `"message"` will print all errors but will **never throw**.
-	- `"throw"` will print all errors, **throw on critical errors**.
-- **addToProcessEnv** `boolean`: Default `true`. If `true` adds the `<envType>.entor.json` content to the `process.env` object.
+	- `"message"` will print all errors but will **never throws**.
+	- `"throw"` will print all errors, **throws on critical errors**.
+<br>
+
+- **addToProcessEnv** `boolean`: Default `true`. If `true` adds the `<env>.entor.json` content to the `process.env` object.
+<br>
+
+- **syncExamples** `boolean`: Default `false`. If `true` syncs the `entor.<env>.json` file with the `entorExample.<env>.json` file.
+
 
 
 <br>
@@ -122,11 +138,11 @@ const env = require("entor")({config});
 # Override precedence:
 
 1. `sharedEnvFilePath`
-2. `envType`
+2. `env`
 3. `override`
 
-`sharedEnvFilePath` will overwriteen by `envType`.
-`envType`will be overwritten by `override`.
+`sharedEnvFilePath` will overwriteen by `env`.
+`env`will be overwritten by `override`.
 
 
 
@@ -140,13 +156,13 @@ const env = require("entor")({config});
 
 Run
 ```
-node ./index.js --myEnv=local
+node ./index.js --myCustomEnv=local
 ```
 
 index.js
 ```js
 require("entor")({
-	getEnvType: args => args.myEnv,
+	getEnv: args => args.myCustomEnv,
 });
 ```
 
@@ -156,7 +172,7 @@ require("entor")({
 
 Run
 ```
-node ./index.js --entor=prod
+node ./index.js --env=prod
 ```
 
 prod.entor.json
@@ -191,7 +207,7 @@ process.env = {
 
 Run
 ```
-node ./index.js --entor=prod
+node ./index.js --env=prod
 ```
 
 shared.entor.json

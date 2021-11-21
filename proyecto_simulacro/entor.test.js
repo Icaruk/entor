@@ -6,10 +6,10 @@ const sharedEnvPath = process.cwd();
 describe("Default config", () => {
 
 	
-	test("envType:local", async () => {
+	test("env:local", async () => {
 		
 		entor({
-			envType: "local",
+			env: "local",
 			path: "proyecto_simulacro",
 		});
 		
@@ -19,10 +19,10 @@ describe("Default config", () => {
 		
 	});
 	
-	test("envType:local override", async () => {
+	test("env:local override", async () => {
 		
 		entor({
-			envType: "local",
+			env: "local",
 			path: "proyecto_simulacro",
 			override: {
 				email_user: "localOverride"
@@ -35,10 +35,10 @@ describe("Default config", () => {
 		
 	});
 	
-	test("envType:prod", async () => {
+	test("env:prod", async () => {
 		
 		entor({
-			envType: "prod",
+			env: "prod",
 			path: "proyecto_simulacro",
 		});
 		
@@ -48,10 +48,10 @@ describe("Default config", () => {
 		
 	});
 	
-	test("envType:error", async () => {
+	test("env:error", async () => {
 		
 		entor({
-			envType: "error",
+			env: "error",
 			path: "proyecto_simulacro",
 		});
 		
@@ -67,10 +67,10 @@ describe("Default config", () => {
 
 describe("Otros", () => {
 	
-	test("Juankeo getEnvType:local", async () => {
+	test("Juankeo getEnv:local", async () => {
 		
 		entor({
-			getEnvType: () => "local",
+			getEnv: () => "local",
 			path: "proyecto_simulacro",
 		});
 		
@@ -80,10 +80,10 @@ describe("Otros", () => {
 		
 	});
 	
-	test("getEnvType:local2 path:env", async () => {
+	test("getEnv:local2 path:env", async () => {
 		
 		entor({
-			getEnvType: () => "local2",
+			getEnv: () => "local2",
 			path: "proyecto_simulacro/env",
 		});
 		
@@ -102,7 +102,7 @@ describe("Shared", () => {
 	test("Path", async () => {
 		
 		entor({
-			getEnvType: () => "local",
+			getEnv: () => "local",
 			path: "proyecto_simulacro",
 			sharedEnvPath: sharedEnvPath,
 		});
@@ -116,7 +116,7 @@ describe("Shared", () => {
 	test("Path + shared", async () => {
 		
 		entor({
-			getEnvType: () => "local2",
+			getEnv: () => "local2",
 			path: "proyecto_simulacro/env",
 			sharedEnvPath: sharedEnvPath,
 		});
@@ -130,7 +130,7 @@ describe("Shared", () => {
 	test("Path + shared + override", async () => {
 		
 		entor({
-			getEnvType: () => "local2",
+			getEnv: () => "local2",
 			path: "proyecto_simulacro/env",
 			sharedEnvPath: sharedEnvPath,
 			override: {
