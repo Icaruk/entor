@@ -1,6 +1,6 @@
 
 <div style="text-align:center">
-	<font size="6">🌌</font> 
+	<img src="https://i.gyazo.com/0bdbfe268d70a6fc916ef4faa2e6b68d.png">
 	<h1> entor </h1>
 </div>
 
