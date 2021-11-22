@@ -1,6 +1,6 @@
 {
 	"name": "entor",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"description": "Loads environment variables from JSON files into process.env and supports shared environments.",
 	"main": "lib/index.js",
 	"scripts": {
