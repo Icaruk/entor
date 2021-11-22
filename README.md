@@ -110,13 +110,13 @@ const env = require("entor")({config});
 - **env** `string`: Defines the environment type. This will take precedence over `getEnv`.
 <br>
 
-- **path** `string`: Defines the path where will look for the file `<env>.entor.json`. Default `./`.
+- **path** `string`: Defines the path where will look for the file `entor.<env>.json`. Default `./`.
 <br>
 
 - **sharedEnvFilePath** `string`: Defines the file path where a `.json` will be loaded.
 <br>
 
-- **override** `object`: object that will be merged with the content of `<env>.entor.json`.
+- **override** `object`: object that will be merged with the content of `entor.<env>.json`.
 <br>
 
 - **warningLevel** `"none" | "message" | "throw"`:
@@ -125,7 +125,7 @@ const env = require("entor")({config});
 	- `"throw"` will print all errors, **throws on critical errors**.
 <br>
 
-- **addToProcessEnv** `boolean`: Default `true`. If `true` adds the `<env>.entor.json` content to the `process.env` object.
+- **addToProcessEnv** `boolean`: Default `true`. If `true` adds the `entor.<env>.json` content to the `process.env` object.
 <br>
 
 - **syncExamples** `boolean`: Default `false`. If `true` syncs the `entor.<env>.json` file with the `entorExample.<env>.json` file.
