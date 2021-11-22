@@ -73,10 +73,11 @@ require("entor")();
 
 ✅ Entor will load `local.entor.json` into process.env.
 ```js
-process.env = {
+// process.env
+{
 	"db_url": "prod://url",
 	"user": "prod"
-};
+}
 ```
 
 
@@ -113,7 +114,7 @@ const env = require("entor")({config});
 - **path** `string`: Defines the path where will look for the file `entor.<env>.json`. Default `./`.
 <br>
 
-- **sharedEnvFilePath** `string`: Defines the file path where a `.json` will be loaded.
+- **sharedEnvPath** `string`: Defines the file path where a `.json` will be loaded.
 <br>
 
 - **override** `object`: object that will be merged with the content of `entor.<env>.json`.
@@ -138,11 +139,11 @@ const env = require("entor")({config});
 
 # Override precedence:
 
-1. `sharedEnvFilePath`
+1. `sharedEnvPath`
 2. `env`
 3. `override`
 
-`sharedEnvFilePath` will overwriteen by `env`.
+`sharedEnvPath` will overwriteen by `env`.
 `env`will be overwritten by `override`.
 
 
@@ -196,10 +197,11 @@ require("entor")({
 ✅ Entor will load `prod.entor.json` into process.env and apply the override.
 
 ```js
-process.env = {
+// process.env
+{
 	db_url: "override://url",
 	username: "prod"
-};
+}
 ```
 
 
@@ -228,11 +230,11 @@ prod.entor.json
 index.js
 ```js
 require("entor")({
-	sharedEnvFilePath: "C:/folder/project/shared.entor.json",
+	sharedEnvPath: "C:/folder//",
 });
 ```
 
-✅ Entor will merge  `shared.entor.json` with `prod.entor.json` and write into process.env.
+✅ Entor will merge  `entor.prod.json` (shared) with `prod.entor.json` (project) and write into process.env.
 
 ```js
 process.env = {
