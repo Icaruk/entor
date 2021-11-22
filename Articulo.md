@@ -3,7 +3,7 @@
 
 Have you ever used the **same environment variables in different projects**?
 
-Most of the times we use the same databases or API keys across different projects and we redefine them on every `.env` on every project.
+Most of the times we use the same databases or API keys across different projects and we redefine them on `.env` for each project.
 
 
 
