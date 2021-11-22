@@ -56,7 +56,7 @@ Run
 node ./index.js --env=prod
 ```
 
-prod.entor.json
+entor.prod.json
 ```json
 {
 	"db_url": "prod://url",
@@ -67,11 +67,9 @@ prod.entor.json
 index.js
 ```js
 require("entor")();
-// OR
-// const env = require("entor")({ addToProcessEnv: false });
 ```
 
-✅ Entor will load `local.entor.json` into process.env.
+✅ Entor will load `entor.prod.json` into process.env.
 ```js
 // process.env
 {
@@ -177,7 +175,7 @@ Run
 node ./index.js --env=prod
 ```
 
-prod.entor.json
+entor.prod.json
 ```json
 {
 	"db_url": "prod://url",
@@ -194,7 +192,7 @@ require("entor")({
 });
 ```
 
-✅ Entor will load `prod.entor.json` into process.env and apply the override.
+✅ Entor will load `entor.prod.json` into process.env and apply the override.
 
 ```js
 // process.env
@@ -213,14 +211,14 @@ Run
 node ./index.js --env=prod
 ```
 
-shared.entor.json
+entor.prod.json (located at the parent folder)
 ```json
 {
 	"db_url": "shared://url",
 }
 ```
 
-prod.entor.json
+entor.prod.json (located at project folder)
 ```json
 {
 	"username": "prod"
@@ -230,17 +228,18 @@ prod.entor.json
 index.js
 ```js
 require("entor")({
-	sharedEnvPath: "C:/folder//",
+	sharedEnvPath: "C:/parentFolder/",
 });
 ```
 
 ✅ Entor will merge  `entor.prod.json` (shared) with `prod.entor.json` (project) and write into process.env.
 
 ```js
-process.env = {
+// process.env
+{
 	db_url: "shared://url",
 	username: "prod"
-};
+}
 ```
 
 
