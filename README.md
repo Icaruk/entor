@@ -34,7 +34,7 @@
 - [Table of contents](#table-of-contents)
 - [Example without any config](#example-without-any-config)
 - [Config](#config)
-- [Override precedence:](#override-precedence)
+- [Override priority](#override-priority)
 - [Examples](#examples)
 	- [Custom arguments](#custom-arguments)
 	- [Override](#override)
@@ -51,22 +51,23 @@
 
 # Example without any config
 
-Run
-```
-node ./index.js --env=prod
-```
 
-entor.prod.json
 ```json
+// entor.prod.json
 {
 	"db_url": "prod://url",
 	"username": "prod"
 }
 ```
 
-index.js
 ```js
+// index.js
 require("entor")();
+```
+
+🏃‍♂️ Run
+```
+node ./index.js --env=prod
 ```
 
 ✅ Entor will load `entor.prod.json` into process.env.
@@ -135,14 +136,11 @@ const env = require("entor")({config});
 
 
 
-# Override precedence:
+# Override priority
 
-1. `sharedEnvPath`
-2. `env`
-3. `override`
-
-`sharedEnvPath` will overwriteen by `env`.
-`env`will be overwritten by `override`.
+1. `override` will override ↓
+2. `env` will override ↓
+3. `sharedEnvPath` (This is the first file that will be loaded)
 
 
 
@@ -154,37 +152,33 @@ const env = require("entor")({config});
 
 ## Custom arguments
 
-Run
-```
-node ./index.js --myCustomEnv=local
-```
-
-index.js
 ```js
+// index.js
 require("entor")({
 	getEnv: args => args.myCustomEnv,
 });
+```
+
+🏃‍♂️ Run
+```
+node ./index.js --myCustomEnv=local
 ```
 
 
 
 ## Override
 
-Run
-```
-node ./index.js --env=prod
-```
 
-entor.prod.json
 ```json
+// entor.prod.json
 {
 	"db_url": "prod://url",
 	"username": "prod"
 }
 ```
 
-index.js
 ```js
+// index.js
 require("entor")({
 	override: {
 		db_url: "override://url"
@@ -192,10 +186,16 @@ require("entor")({
 });
 ```
 
+🏃‍♂️ Run
+```
+node ./index.js --env=prod
+```
+
+
 ✅ Entor will load `entor.prod.json` into process.env and apply the override.
 
 ```js
-// process.env
+// process.env values:
 {
 	db_url: "override://url",
 	username: "prod"
@@ -206,36 +206,37 @@ require("entor")({
 
 ## Shared env
 
-Run
-```
-node ./index.js --env=prod
-```
-
-entor.prod.json (located at the parent folder)
 ```json
+// entor.prod.json (located at the parent folder)
 {
 	"db_url": "shared://url",
 }
 ```
 
-entor.prod.json (located at project folder)
 ```json
+// entor.prod.json (located at project folder)
 {
 	"username": "prod"
 }
 ```
 
-index.js
 ```js
+// index.js
 require("entor")({
 	sharedEnvPath: "C:/parentFolder/",
 });
 ```
 
+🏃‍♂️ Run
+```
+node ./index.js --env=prod
+```
+
+
 ✅ Entor will merge  `entor.prod.json` (shared) with `prod.entor.json` (project) and write into process.env.
 
 ```js
-// process.env
+// process.env values:
 {
 	db_url: "shared://url",
 	username: "prod"
