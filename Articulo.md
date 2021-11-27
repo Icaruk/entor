@@ -16,31 +16,31 @@ We usually use the following folder structure:
 ```
 Main folder/
 ├── Project1/
-│	├── .env.local
-│	│	{
-│	│		MONGO_URI: mongodb://localhost:27017
-│	│		API_KEY: localKey
-│	│		SPECIFIC_PROJECT_KEY: 1111
-│	│	}
-│	└── .env
-│		{
-│			MONGO_URI: mongodb://prod:27017
-│			API_KEY: prodKey
-│			SPECIFIC_PROJECT_KEY: 8888
-│		}
+│    ├── .env.local
+│    │    {
+│    │        MONGO_URI: mongodb://localhost:27017
+│    │        API_KEY: localKey
+│    │        SPECIFIC_PROJECT_KEY: 1111
+│    │    }
+│    └── .env
+│        {
+│            MONGO_URI: mongodb://prod:27017
+│            API_KEY: prodKey
+│            SPECIFIC_PROJECT_KEY: 8888
+│        }
 └── Project2/
-	├── .env.local
-	│	{
-	│		MONGO_URI: mongodb://localhost:27017
-	│		API_KEY: localKey
-	│		SPECIFIC_PROJECT_KEY: 2222
-	│	}
-	└── .env
-		{
-			MONGO_URI: mongodb://prod:27017
-			API_KEY: prodKey
-			SPECIFIC_PROJECT_KEY: 9999
-		}
+    ├── .env.local
+    │    {
+    │        MONGO_URI: mongodb://localhost:27017
+    │        API_KEY: localKey
+    │        SPECIFIC_PROJECT_KEY: 2222
+    │    }
+    └── .env
+        {
+            MONGO_URI: mongodb://prod:27017
+            API_KEY: prodKey
+            SPECIFIC_PROJECT_KEY: 9999
+        }
 ```
 
 
@@ -55,33 +55,33 @@ There are duplicated variables, in case we change the `MONGO_URI` in a future, w
 ```
 Main folder/
 ├── entor.local.json
-│	{
-│		"MONGO_URI": "mongodb://localhost:27017",
-│		"API_KEY": "localKey"
-│	}
+│    {
+│        "MONGO_URI": "mongodb://localhost:27017",
+│        "API_KEY": "localKey"
+│    }
 ├── entor.prod.json
-│	{
-│		"MONGO_URI": "mongodb://localhost:27017",
-│		"API_KEY": "localKey"
-│	}
+│    {
+│        "MONGO_URI": "mongodb://localhost:27017",
+│        "API_KEY": "localKey"
+│    }
 ├── Project1/
-│	├── entor.local.json
-│	│	{
-│	│		"SPECIFIC_PROJECT_KEY": "1111"
-│	│	}
-│	└── entor.prod.json
-│		{
-│			"SPECIFIC_PROJECT_KEY": "8888"
-│		}
+│    ├── entor.local.json
+│    │    {
+│    │        "SPECIFIC_PROJECT_KEY": "1111"
+│    │    }
+│    └── entor.prod.json
+│        {
+│            "SPECIFIC_PROJECT_KEY": "8888"
+│        }
 └── Project2/
-	├── entor.local.json
-	│	{
-	│		"SPECIFIC_PROJECT_KEY": "2222"
-	│	}
-	└── entor.prod.json
-		{
-			"SPECIFIC_PROJECT_KEY": "9999"
-		}
+    ├── entor.local.json
+    │    {
+    │        "SPECIFIC_PROJECT_KEY": "2222"
+    │    }
+    └── entor.prod.json
+        {
+            "SPECIFIC_PROJECT_KEY": "9999"
+        }
 ```
 
 If some day we need to change the `MONGO_URI`, we just need to change it in the file `entor.local.json` located at `Main folder/`.
