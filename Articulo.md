@@ -174,5 +174,44 @@ The `--env` flag can be customizable on the config.
 
 ## Shared environment variables
 
+You just need to add some config on the `index.js`:
+
+```js
+require("entor")({
+    sharedEnvPath: "C:/Work/Main folder",
+});
+```
+
+And create the shared files:
+
+```json
+// entor.dev.json
+{
+    "MONGO_URL": "mongodb://dev:27017"
+}
+```
+
+and
+
+```json
+// entor.prod.json
+{
+    "MONGO_URL": "mongodb://prod:27017"
+}
+```
 
 
+Relaunch your file with
+`node index.js --env=local`
+
+And you'll see that:
+
+- `process.env.SPECIFIC_PROJECT_KEY` will be `1111`.
+- `process.env.MONGO_URI` will be `mongodb://dev:27017`.
+
+
+Or with:
+`node index.js --env=prod`
+
+- `process.env.SPECIFIC_PROJECT_KEY` will be `8888`.
+- `process.env.MONGO_URI` will be `mongodb://prod:27017`.
