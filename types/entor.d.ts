@@ -19,7 +19,7 @@ export = entor;
  * Run your node app with `--env=prod` to set the `env` on startup.
  * @param {props} props
 */
-declare function entor({ env, getEnv, path, sharedEnvPath, override, addToProcessEnv, warningLevel, syncExamples, }: props): any;
+declare function entor({ env, getEnv, path, sharedEnvPath, override, addToProcessEnv, warningLevel, syncExamples, }?: props): any;
 declare namespace entor {
     export { props };
 }

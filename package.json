@@ -2,7 +2,7 @@
 	"name": "entor",
 	"version": "1.2.1",
 	"description": "Loads environment variables from JSON files into process.env and supports shared environments.",
-	"main": "lib/index.js",
+	"main": "lib/entor.js",
 	"scripts": {
 		"jest": "jest",
 		"declaration:build": "tsc -b"
