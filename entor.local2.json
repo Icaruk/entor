@@ -1,0 +1,6 @@
+{
+	"test": "sharedlocal2",
+	"mongo_uri": "mongodb://local2",
+	"email_user": "local2",
+	"email_pass": 1234
+}

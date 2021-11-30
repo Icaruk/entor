@@ -1,0 +1,39 @@
+{
+	"name": "entor",
+	"version": "1.2.2",
+	"description": "Loads environment variables from JSON files into process.env and supports shared environments.",
+	"main": "lib/entor.js",
+	"scripts": {
+		"jest": "jest",
+		"declaration:build": "tsc -b"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Icaruk/entor.git"
+	},
+	"keywords": [
+		"entor",
+		"env",
+		".env",
+		"environment",
+		"variables",
+		"config",
+		"configuration",
+		"settings"
+	],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Icaruk/entor/issues"
+	},
+	"homepage": "https://github.com/Icaruk/entor#readme",
+	"types": "./types/index.d.ts",
+	"files": [
+		"lib/entor.js",
+		"types/entor.d.ts"
+	],
+	"devDependencies": {
+		"jest": "^27.3.1",
+		"typescript": "^4.4.4"
+	}
+}
