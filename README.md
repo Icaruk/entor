@@ -52,7 +52,7 @@
 # Example without any config
 
 
-```json
+```js
 // entor.prod.json
 {
 	"db_url": "prod://url",
@@ -169,7 +169,7 @@ node ./index.js --myCustomEnv=local
 ## Override
 
 
-```json
+```js
 // entor.prod.json
 {
 	"db_url": "prod://url",
@@ -206,14 +206,14 @@ node ./index.js --env=prod
 
 ## Shared env
 
-```json
+```js
 // entor.prod.json (located at the parent folder)
 {
 	"db_url": "shared://url",
 }
 ```
 
-```json
+```js
 // entor.prod.json (located at project folder)
 {
 	"username": "prod"
