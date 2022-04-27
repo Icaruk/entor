@@ -6,8 +6,8 @@ const entor = require("../lib/entor");
 
 entor({
 	// envType: "local",
-	sharedEnvPath: "D:/Programación/entor/",
-	// syncExamples: true,
+	// sharedEnvPath: "D:/Programación/entor/",
+	syncExamples: true,
 });
 
 
